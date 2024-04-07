@@ -132,9 +132,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 2240043674864724140}
-  speed: 5
+  boxCollider: {fileID: 5299919151068051969}
   maxLives: 3
+  speed: 5
+  leftLimitX: 0
+  rightLimitX: 0
   jumpForce: 5
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!50 &2240043674864724140
 Rigidbody2D:
   serializedVersion: 4
