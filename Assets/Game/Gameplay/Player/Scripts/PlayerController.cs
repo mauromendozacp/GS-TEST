@@ -5,6 +5,8 @@ public class PlayerController : MonoBehaviour
     [Header("Main Configuration")]
     [SerializeField] private Rigidbody2D rigid = null;
     [SerializeField] private BoxCollider2D boxCollider = null;
+    [SerializeField] private Animator animator = null;
+    [SerializeField] SpriteRenderer sprite = null;
     [SerializeField] private int maxLives = 0;
     
     [Header("Movement Configuration")]
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         MovePlayer();
+        UpdateAnimation();
     }
 
     private void FixedUpdate()
@@ -43,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public void LeftButtonPointDown()
     {
         moveLeft = true;
+        sprite.flipX = true;
     }
 
     public void LeftButtonPointUp()
@@ -53,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public void RightButtonPointDown()
     {
         moveRight = true;
+        sprite.flipX = false;
     }
 
     public void RightButtonPointUp()
@@ -93,5 +98,10 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, checkFloorDistance, floorLayer);
 
         playerOnFloor = hit.collider != null;
+    }
+
+    private void UpdateAnimation()
+    {
+        animator.SetBool("IsWalking", moveRight || moveLeft);
     }
 }
