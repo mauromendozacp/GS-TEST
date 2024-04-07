@@ -1,12 +1,17 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Main Configuration")]
     [SerializeField] private Rigidbody2D rigid = null;
-    [SerializeField] private float speed = 0f;
     [SerializeField] private int maxLives = 0;
     [SerializeField] private float jumpForce = 0f;
+
+    [Header("Movement Configuration")]
+    [SerializeField] private float speed = 0f;
+    [SerializeField] private float leftLimitX = 0f;
+    [SerializeField] private float rightLimitX = 0f;
 
     private float currentLives = 0;
     private bool moveLeft = false;
@@ -49,13 +54,21 @@ public class PlayerController : MonoBehaviour
 
     private void MovePlayer()
     {
+        Vector2 movePosition = Vector3.zero;
+
         if (moveRight)
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            if (transform.position.x < rightLimitX)
+            {
+                transform.Translate(Vector2.right * speed * Time.deltaTime);
+            }
         }
         else if (moveLeft)
         {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            if (transform.position.x > leftLimitX)
+            {
+                transform.Translate(Vector2.left * speed * Time.deltaTime);
+            }
         }
     }
 }
