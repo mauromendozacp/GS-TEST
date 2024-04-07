@@ -423,6 +423,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7764027177968694394, guid: bdcbe7480b9fd7c40be15ddd066b1e86, type: 3}
+      propertyPath: livesTxt
+      value: 
+      objectReference: {fileID: 501154155}
+    - target: {fileID: 7764027177968694394, guid: bdcbe7480b9fd7c40be15ddd066b1e86, type: 3}
       propertyPath: leftLimitX
       value: -6
       objectReference: {fileID: 0}

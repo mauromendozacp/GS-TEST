@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private float speed = 0f;
     [SerializeField] private LayerMask damageableLayer = default;
 
     private Action<EnemyController> onDespawn = null;
@@ -13,6 +12,12 @@ public class EnemyController : MonoBehaviour
     {
         if (CheckLayerInMask(damageableLayer, collision.gameObject.layer))
         {
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.HitPlayer();
+            }
+
             onDespawn?.Invoke(this);
         }
     }
