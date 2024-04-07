@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 772313387922472207}
   - component: {fileID: 2269936272545831552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7764027177968694394}
   - component: {fileID: 2240043674864724140}
   - component: {fileID: 5299919151068051969}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: prefab_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
